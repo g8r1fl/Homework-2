@@ -136,8 +136,20 @@ Greatest_volume = Application.WorksheetFunction.Max(Range(Cells(2, 12), Cells(Su
 'Print values
 Range("P4") = Format(Greatest_volume, "Scientific")
 
+For i = 2 To Summary_lrow
+
+    If Cells(i, 11) = Greatest_increase Then
+        Range("O2") = Cells(i, 9)
+    ElseIf Cells(i, 11) = Greatest_decrease Then
+        Range("O3") = Cells(i, 9)
+    ElseIf Cells(i, 12) = Greatest_volume Then
+        Range("O4") = Cells(i, 9)
+    End If
+    
+Next i
+
+    
+
 Columns("N").EntireColumn.AutoFit
 
 End Sub
-
-
